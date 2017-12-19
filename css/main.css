@@ -28,7 +28,7 @@ body, html {
   font-size: 16px;
   color: whitesmoke;
 }
-.md-primary{
+.md-primary button{
   background: #fff;
 }
 .dialog{

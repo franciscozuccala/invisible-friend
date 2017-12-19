@@ -2,8 +2,7 @@
 
   var app = angular.module('invisible-friend',['ngMaterial']);
   app.controller('AppController', function($scope, $mdDialog) {
-      $scope.status = '  ';
-      $scope.customFullscreen = false;
+      var persons = []
     
       $scope.showDialog = function(ev) {        
           $mdDialog.show({
@@ -12,7 +11,7 @@
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose:true,
-            fullscreen: $scope.customFullscreen
+            fullscreen: false
           })
           .then(function(answer) {
             $scope.status = 'You said the information was "' + answer + '".';
