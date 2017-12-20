@@ -10,7 +10,9 @@
     
           $scope.addPlayer = function(){            
             if($scope.newUser.name !== ""){
-              $scope.players.push($scope.newUser);
+                console.log($scope.newUser.name);
+                
+                $scope.players.push(Object.create($scope.newUser));
             }
           }
 

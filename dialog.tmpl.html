@@ -23,6 +23,12 @@
                             </md-input-container>
                         <button type="button" class="md-button" ng-click="addPlayer()">Agregar</button>
                     </div>
+                    <mat-list>
+                        <mat-list-item ng-repeat="player in players track by $index" class="row"> 
+                            <span matLine class="col-md-6">Nombre: {{player.name}} </span>
+                            <span matLine class="col-md-6">Mail: {{player.mail}} </span>
+                        </mat-list-item>
+                    </mat-list>
                 </div>
             </md-dialog-content>
         
@@ -30,7 +36,7 @@
                 <button class="black-text md-button md-ink-ripple" type="button" ng-click="cancel()">
                     <span class="ng-scope">Cancelar</span>
                 </button>
-                <button class="black-text md-button md-ink-ripple" type="button" ng-click="sendEmails()">
+                <button class="black-text md-button md-ink-ripple" type="button" ng-click="hide()">
                     <span class="ng-scope">Listo</span>
             </button>
             </md-dialog-actions>

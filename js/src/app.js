@@ -3,8 +3,8 @@ app.factory('PlayerService', function(){
     this.players = [];
     return this;
 });
-(function(){
 
+(function(){
   app.controller('AppController', function($scope, $mdDialog, PlayerService) {
       $scope.players = PlayerService.players
     
@@ -17,8 +17,10 @@ app.factory('PlayerService', function(){
             clickOutsideToClose:true,
             fullscreen: false
           })
-          .then(function(answer) {
-            console.log("Answered: " + $scope.players);
+          .then(function() {
+            $scope.players.forEach(element => {
+              console.log(element.name + element.mail);
+            });
             
           }, function() {
             console.log("Canceled");
@@ -33,10 +35,6 @@ app.factory('PlayerService', function(){
       
           $scope.cancel = function() {
             $mdDialog.cancel();
-          };
-      
-          $scope.sendEmails = function() {
-            $mdDialog.hide();
           };
         }
   });
