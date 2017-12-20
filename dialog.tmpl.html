@@ -9,19 +9,19 @@
                     </button>
                 </div>
             </md-toolbar>
-            <md-dialog-content id="dialogContent_42">
+            <md-dialog-content id="dialogContent_42" ng-controller="DialogController as dialogCtrl">
                 <div class="md-dialog-content">
                     <h2>Jugadores</h2>
                     <div>
                         <md-input-container flex-gt-sm>
                             <label>Nombre del jugador</label>
-                            <input ng-model="user.name">
+                            <input ng-model="newUser.name">
                         </md-input-container>
                         <md-input-container flex-gt-sm>
                                 <label>Mail del jugador</label>
-                                <input ng-model="user.mail">
+                                <input ng-model="newUser.mail" type="email">
                             </md-input-container>
-                        <button type="button" class="md-button">Agregar</button>
+                        <button type="button" class="md-button" ng-click="addPlayer()">Agregar</button>
                     </div>
                 </div>
             </md-dialog-content>
@@ -30,7 +30,7 @@
                 <button class="black-text md-button md-ink-ripple" type="button" ng-click="cancel()">
                     <span class="ng-scope">Cancelar</span>
                 </button>
-                <button class="black-text md-button md-ink-ripple" type="button" ng-click="answer()">
+                <button class="black-text md-button md-ink-ripple" type="button" ng-click="sendEmails()">
                     <span class="ng-scope">Listo</span>
             </button>
             </md-dialog-actions>

@@ -1,8 +1,12 @@
+var app = angular.module('invisible-friend',['ngMaterial']);
+app.factory('PlayerService', function(){
+    this.players = [];
+    return this;
+});
 (function(){
 
-  var app = angular.module('invisible-friend',['ngMaterial']);
-  app.controller('AppController', function($scope, $mdDialog) {
-      var persons = []
+  app.controller('AppController', function($scope, $mdDialog, PlayerService) {
+      $scope.players = PlayerService.players
     
       $scope.showDialog = function(ev) {        
           $mdDialog.show({
@@ -14,9 +18,11 @@
             fullscreen: false
           })
           .then(function(answer) {
-            $scope.status = 'You said the information was "' + answer + '".';
+            console.log("Answered: " + $scope.players);
+            
           }, function() {
-            $scope.status = 'You cancelled the dialog.';
+            console.log("Canceled");
+            
           });
         };
 
@@ -29,8 +35,8 @@
             $mdDialog.cancel();
           };
       
-          $scope.answer = function(answer) {
-            $mdDialog.hide(answer);
+          $scope.sendEmails = function() {
+            $mdDialog.hide();
           };
         }
   });
